@@ -30,7 +30,6 @@ All the values after node should be in the same order.
 class Solution {
 public:
     void deleteNode(ListNode* node) {
-         
         ListNode *nextNode = node->next;      
         node->val = nextNode->val; 
         node->next = nextNode->next;
