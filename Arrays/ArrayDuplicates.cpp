@@ -6,18 +6,18 @@ return list containing [-1].
 
 //code
 vector<int> duplicates(vector<long long> arr) {
-    vector<int> res;
-    for (int i = 0; i < arr.size(); i++) {
-        int index = arr[i] % arr.size();
-        arr[index] += arr.size();
-    }
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] / arr.size() > 1) {
-            res.push_back(i);
+        vector<int>b;
+        vector<long long> res(arr.size(),0);
+        for(int i=0;i<arr.size();i++){
+            res[arr[i]]++;
         }
-    }
-    if (res.size() == 0) {
-        res.push_back(-1);
-    }
-    return res;
+        for(int i=0;i<res.size();i++){
+            if(res[i]>1){
+                b.push_back(i);
+            }
+        }
+        if(b.empty()){
+            b.push_back(-1);
+        }
+        return b;
 }
