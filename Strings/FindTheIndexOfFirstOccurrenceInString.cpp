@@ -29,6 +29,11 @@ public:
         return -1;
         
     }
+    int main(){
+        string haystack = "hello";
+        string needle = "ll";
+        cout<<strStr(haystack,needle);
+    }
 };
 
 
