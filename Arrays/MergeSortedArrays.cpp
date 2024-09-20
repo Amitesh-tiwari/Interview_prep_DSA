@@ -40,3 +40,28 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n)
         k--;
     }
 } 
+
+//explanation
+// //int i = m - 1;: This variable i is initialized to the 
+// //last index of the initialized elements in nums1.
+// //int j = n - 1;: This variable j is initialized to the 
+// //last index of the initialized elements in nums2.
+// //int k = m + n - 1;: This variable k is initialized to 
+// //the last index of the total space available in nums1.
+// //while (i >= 0 && j >= 0): This loop continues until we 
+// //have processed all elements in either nums1 or nums2.
+// // if (nums1[i] > nums2[j]): If the current element in 
+// nums1 is greater than the current element in nums2, it is
+//  placed at the current position k in nums1, and the index 
+//  i is decremented.
+// // else: If the current element in nums2 is greater or 
+// equal, it is placed at the current position k in nums1, 
+// and the index j is decremented.
+// // nums1[k] = nums1[i];: The element from nums1 is placed 
+// at position k in nums1, and both i and k are decremented.
+// // nums1[k] = nums2[j];: The element from nums2 is placed 
+// at position k in nums1, and both j and k are decremented.
+// //while (j >= 0): This loop continues until all remaining elements in nums2 are copied to nums1.
+// nums1[k] = nums2[j];: The remaining elements from nums2 
+// are placed at position k in nums1, and both j and k are 
+// decremented.
