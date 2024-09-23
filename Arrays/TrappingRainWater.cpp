@@ -18,7 +18,7 @@ int trap(vector<int>& height){
     int ans = 0;
     for(int i=0;i<n;i++)
         ans += (min(left[i], right[i]) - height[i]);
-    return ansl
+    return ans;
 }
 
 //optimal approach

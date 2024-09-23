@@ -19,17 +19,52 @@ Otherwise, return false.
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+#include <iostream>
+#include <unordered_set>
+using namespace std;
+
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(nullptr) {}
+};
+
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-         unordered_set<ListNode*> s;
+        unordered_set<ListNode*> s;
         for (; head; head = head->next) {
-            if (s.contains(head)) {
+            if (s.find(head) != s.end()) {
                 return true;
             }
             s.insert(head);
         }
         return false;
-        
     }
 };
+
+int main() {
+    // Create a linked list: 3 -> 2 -> 0 -> -4 -> 2 (cycle)
+    ListNode* head = new ListNode(3);
+    ListNode* second = new ListNode(2);
+    ListNode* third = new ListNode(0);
+    ListNode* fourth = new ListNode(-4);
+
+    head->next = second;
+    second->next = third;
+    third->next = fourth;
+    fourth->next = second; // Create a cycle
+
+    Solution solution;
+    bool result = solution.hasCycle(head);
+    cout << "The linked list has a cycle: " << (result ? "Yes" : "No") << endl;
+
+    // Clean up memory (in a real scenario, you would need to handle this carefully due to the cycle)
+    delete head;
+    delete second;
+    delete third;
+    delete fourth;
+
+    return 0;
+}

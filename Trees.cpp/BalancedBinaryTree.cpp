@@ -18,18 +18,20 @@ public:
         if (h == 1) return 1;
         int mod = 1e9 + 7;
         long long dp[h + 1];
+        int left = dp[i-1];
+        int right = dp[i-2];
         dp[0] = 1;
         dp[1] = 1;
         for (int i = 2; i <= h; i++) {
-            dp[i] = (dp[i - 1] * ((2 * dp[i - 2]) % mod + dp[i - 1]) % mod) % mod;
+            dp[i] = (left * ((2 * right) % mod + left) % mod) % mod;
         }
         return dp[h];
     }
 };
 int main() {
-    Solution solution;
+    
     int height = 3; // Example height
-    int result = solution.countBalancedBinaryTrees(height);
+    int result = countBalancedBinaryTrees(height);
     cout << "Number of balanced binary trees of height " << height << " is: " << result << endl;
     return 0;
 }
