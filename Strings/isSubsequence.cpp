@@ -20,3 +20,13 @@ public:
         return i==s.size();
     }
 };
+int main() {
+    string s = "abc";
+    string t = "ahbgdc";
+    if (isSubsequence(s, t)) {
+        cout << s << " is a subsequence of " << t << endl;
+    } else {
+        cout << s << " is not a subsequence of " << t << endl;
+    }
+    return 0;
+}
